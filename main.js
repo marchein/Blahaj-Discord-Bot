@@ -6,7 +6,8 @@ function includesBlahaj(message) {
 	const triggerWordsForImage = ["franz", "blahaj", "blåhaj", "hai", "shark"];
 	let includesBlahaj = false;
 	triggerWordsForImage.forEach(function(word) {
-		if (message.includes(word)) {
+		let regex = '\\b' + word + '\\b';
+		if (message.match(regex)) {
 			console.log("message (" + message + ") includes blahaj");
 			includesBlahaj = true;
 		}
