@@ -2,13 +2,16 @@
   "name": "discord-bot",
   "version": "1.0.0",
   "description": "Discord bot for BLAHAJ",
-  "main": "main.js",
+  "main": "src/js/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint -c ./.eslintrc.json src/js/**.js",
+    "start": "node ."
   },
   "author": "Marc Hein",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "discord.js": "^11.4.2",
+    "eslint": "^5.12.1"
   }
 }
