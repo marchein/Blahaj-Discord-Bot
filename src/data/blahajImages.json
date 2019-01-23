@@ -1,30 +1,173 @@
 {
-    "laughing": "https://i.imgur.com/CuhT5Dz.png",
-    "crying": "https://i.imgur.com/uHh7UWf.png",
-    "noway": "https://i.imgur.com/Es05dFw.png",
-    "tired": "https://i.imgur.com/OY3xPRZ.png",
-    "question": "https://i.imgur.com/7KcxqDp.png",
-    "whatever": "https://i.imgur.com/Pz5VPmV.png",
-    "youknow": "https://i.imgur.com/OZWzjnM.png",
-    "car": "https://i.imgur.com/a6Rv1Y5.png",
-    "magic": "https://i.imgur.com/PInrKzf.png",
-    "greetings": "https://i.imgur.com/MbrDttJ.png",
-    "netsharkandchill": "https://i.imgur.com/ff8HWdW.png",
-    "love": "https://i.imgur.com/wT5bCVq.png",
-    "horse": "https://i.imgur.com/bqju3uM.png",
-    "running": "https://i.imgur.com/Ax2QUss.png",
-    "sick": "https://i.imgur.com/uZPh3zW.png",
-    "meal": "https://i.imgur.com/9er9DuA.png",
-    "showering": "https://i.imgur.com/hWeuUZ7.png",
-    "king": "https://i.imgur.com/f2ydvaX.png",
-    "reading": "https://i.imgur.com/CvqFCON.png",
-    "happy": "https://i.imgur.com/YjSPj2J.png",
-    "sleeping": "https://i.imgur.com/OJ4lZdD.png",
-    "dead": "https://i.imgur.com/BJNn40T.png",
-    "pc": "https://i.imgur.com/DNGu8XG.png",
-    "batman": "https://i.imgur.com/b8KhpW0.png",
-    "thumbsup": "https://i.imgur.com/0N5phOI.png",
-    "seesphp": "https://i.imgur.com/gnx5iDa.png",
-    "winking": "https://i.imgur.com/nWA7kzZ.png",
-    "glad": "https://i.imgur.com/3kH54zL.png"
+	"laughing":{
+		"image":"https://i.imgur.com/nSxnkgk.png",
+		"keywords":[
+			"laughing",
+			"lachen",
+			"lustig",
+			"funny"
+		]
+	},
+	"crying":{
+		"image":"https://i.imgur.com/uHh7UWf.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"noway":{
+		"image":"https://i.imgur.com/Es05dFw.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"tired":{
+		"image":"https://i.imgur.com/OY3xPRZ.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"question":{
+		"image":"https://i.imgur.com/7KcxqDp.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"whatever":{
+		"image":"https://i.imgur.com/Pz5VPmV.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"youknow":{
+		"image":"https://i.imgur.com/OZWzjnM.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"car":{
+		"image":"https://i.imgur.com/a6Rv1Y5.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"magic":{
+		"image":"https://i.imgur.com/PInrKzf.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"greetings":{
+		"image":"https://i.imgur.com/MbrDttJ.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"netsharkandchill":{
+		"image":"https://i.imgur.com/ff8HWdW.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"love":{
+		"image":"https://i.imgur.com/wT5bCVq.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"horse":{
+		"image":"https://i.imgur.com/bqju3uM.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"running":{
+		"image":"https://i.imgur.com/Ax2QUss.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"sick":{
+		"image":"https://i.imgur.com/uZPh3zW.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"meal":{
+		"image":"https://i.imgur.com/9er9DuA.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"showering":{
+		"image":"https://i.imgur.com/hWeuUZ7.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"king":{
+		"image":"https://i.imgur.com/f2ydvaX.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"reading":{
+		"image":"https://i.imgur.com/CvqFCON.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"happy":{
+		"image":"https://i.imgur.com/YjSPj2J.png",
+		"keywords":[
+			"happy"
+		]
+	},
+	"sleeping":{
+		"image":"https://i.imgur.com/OJ4lZdD.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"dead":{
+		"image":"https://i.imgur.com/BJNn40T.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"pc":{
+		"image":"https://i.imgur.com/DNGu8XG.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"batman":{
+		"image":"https://i.imgur.com/b8KhpW0.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"thumbsup":{
+		"image":"https://i.imgur.com/0N5phOI.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"seesphp":{
+		"image":"https://i.imgur.com/gnx5iDa.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"winking":{
+		"image":"https://i.imgur.com/nWA7kzZ.png",
+		"keywords":[
+			"whatever"
+		]
+	},
+	"glad":{
+		"image":"https://i.imgur.com/3kH54zL.png",
+		"keywords":[
+			"whatever"
+		]
+	}
 }

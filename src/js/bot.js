@@ -19,16 +19,15 @@ const logger = winston.createLogger({
 	]
 });
 
-if (process.env.NODE_ENV !== "production") {
+if (config.DEBUG) {
 	logger.add(new winston.transports.Console({
 		format: winston.format.simple()
 	}));
 }
 
 function includesBlahaj(message) {
-	const triggerWordsForImage = ["franz", "blahaj", "blåhaj", "hai", "shark"];
 	let includesBlahaj = false;
-	triggerWordsForImage.forEach(function (word) {
+	config.RANDOM_WORDS.forEach(function (word) {
 		let regex = "\\b" + word + "\\b";
 		if (message.match(regex)) {
 			logger.info("Received message (" + message + ") includes blahaj. Proceed.");
@@ -74,6 +73,7 @@ function loadBlahajImages() {
 			console.log(err);
 		} else {
 			blahajImages = JSON.parse(data);
+			console.log(getAllKeyWords());
 		}
 	});
 }
@@ -88,24 +88,51 @@ function isAllowed(userId) {
 	return isAllowedUser;
 }
 
+function handleRandomImage(message) {
+	logger.info(`Got message by authorized user ${message.author.tag} (ID: ${message.author.id})!`);
+	sendImage(message, getRandomBlahajImage());
+	logger.info("Sending random blahaj image!");
+}
+
+function handleOwnerFeatures(message) {
+	if (message.content === "!add") {
+		addUser(message.author.id);
+	}
+}
+
+function handleKeyWordImage(message, enteredKeyword) {
+	let possibleImages = [];
+	let keys = Object.keys(blahajImages);
+
+	console.log(enteredKeyword);
+	keys.forEach(function (key) {
+		blahajImages[key].keywords.forEach(function (keyword) {
+			if (keyword === enteredKeyword) {
+				possibleImages.push(blahajImages[key].image);
+			}
+		});
+	});
+	console.log(possibleImages);
+	sendImage(message, possibleImages[Math.floor(Math.random() * possibleImages.length)]);
+}
+
+function sendImage(message, image) {
+	const attachment = new Attachment(image);
+	message.channel.send(attachment);
+}
+
 function handleMessage(client, message) {
 	if (isAllowed(message.author.id)) {
 		let messageText = (message.content).toLowerCase();
 		let doesIncludeBlahaj = includesBlahaj(messageText);
+		let doesContainsKeyword = containsKeyword(messageText);
+
 		if (doesIncludeBlahaj) {
-			logger.info(`Got message by authorized user ${message.author.tag} (ID: ${message.author.id})!`);
-			const attachment = new Attachment(getRandomBlahajImage());
-			message.channel.send(attachment);
-			logger.info("Sending random blahaj image!");
-		}
-		if (messageText.includes("whatever")) {
-			const attachment = new Attachment(blahajImages.whatever);
-			message.channel.send(attachment);
-		}
-		if (message.author.id === config.BOT_OWNER) {
-			if (message.content === "!add") {
-				addUser(message.author.id);
-			}
+			handleRandomImage(message);
+		} else if (doesContainsKeyword.boolean) {
+			handleKeyWordImage(message, doesContainsKeyword.keyword);
+		} else if (message.author.id === config.BOT_OWNER) {
+			handleOwnerFeatures(message);
 		}
 	} else if (message.author.id === client.user.id) {
 		logger.info(`Bot ${client.user.tag} wrote message: ${message.content}`);
@@ -115,8 +142,37 @@ function handleMessage(client, message) {
 }
 
 function getRandomBlahajImage() {
-	var keys = Object.keys(blahajImages);
-	return blahajImages[keys[ keys.length * Math.random() << 0]];
+	let keys = Object.keys(blahajImages);
+	return blahajImages[keys[ keys.length * Math.random() << 0]].image;
+}
+
+function getAllKeyWords() {
+	let keys = Object.keys(blahajImages);
+	let keywords = [];
+	keys.forEach(function (key) {
+		blahajImages[key].keywords.forEach(function (keyword) {
+			keywords.push(keyword);
+		});
+	});
+	return Array.from(new Set(keywords));
+}
+
+function containsKeyword(message) {
+	let foundKeyword;
+	let doesContainKeyword = false;
+	let allKeyWords = getAllKeyWords();
+	allKeyWords.forEach(function (keyword) {
+		if (message.indexOf(keyword) !== -1) {
+			logger.info("Received message (" + message + ") includes keyword. Proceed.");
+			foundKeyword = keyword;
+			doesContainKeyword = true;
+		}
+	});
+
+	return {
+		boolean: doesContainKeyword,
+		keyword: foundKeyword
+	};
 }
 
 loadAllowedUsers();
