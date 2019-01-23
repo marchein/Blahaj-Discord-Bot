@@ -37,22 +37,57 @@ function includesBlahaj(message) {
 	return includesBlahaj;
 }
 
-function addUser(id) {
+function addUser(message, id) {
 	fs.readFile(config.data.USERS_FILE_PATH, "utf8", function readFileCallback(err, data) {
 		if (err) {
 			logger.error("Error in addUser: " + err);
 		} else {
 			let jsonFile = JSON.parse(data);
-			console.log(jsonFile);
-			jsonFile.users.push(id);
-			usersOfBot = jsonFile.users;
-			let jsonString = JSON.stringify(jsonFile); //convert it back to json
-			fs.writeFile(config.data.USERS_FILE_PATH, jsonString, "utf8", function (err) {
-				if (err) {
-					logger.error("Error in addUser - writeFile: " + err);
-				}
-				logger.info("User " + id + "has been added. The file was saved!");
-			}); // write it back
+			if (id === -1) {
+				errorMessage(message, "No id provided. Aborting.");
+			} else if (jsonFile.users.indexOf(id) === -1) {
+				jsonFile.users.push(id);
+				usersOfBot = jsonFile.users;
+				let jsonString = JSON.stringify(jsonFile); //convert it back to json
+				fs.writeFile(config.data.USERS_FILE_PATH, jsonString, "utf8", function (err) {
+					if (err) {
+						logger.error("Error in addUser - writeFile: " + err);
+					}
+					infoMessage(message, `User ${id} has been been added. The file was saved!`);
+				});
+			} else {
+				let error = `User with ID ${id} already exists in data.`;
+				sendMessage(message, error);
+				logger.error(error);
+			}
+		}
+	});
+}
+
+function removeUser(message, id) {
+	fs.readFile(config.data.USERS_FILE_PATH, "utf8", function readFileCallback(err, data) {
+		if (err) {
+			logger.error("Error in removeUser: " + err);
+		} else {
+			let jsonFile = JSON.parse(data);
+			let indexOfUser = jsonFile.users.indexOf(id);
+			if (id === -1) {
+				logger.error("No id provided. Aborting.");
+			} else if (indexOfUser !== -1) {
+				jsonFile.users.splice(indexOfUser, 1);
+				usersOfBot = jsonFile.users;
+				let jsonString = JSON.stringify(jsonFile); //convert it back to json
+				fs.writeFile(config.data.USERS_FILE_PATH, jsonString, "utf8", function (err) {
+					if (err) {
+						logger.error("Error in removeUser - writeFile: " + err);
+					}
+					infoMessage(message, `User ${id} has been been removed. The file was saved!`);
+				});
+			} else {
+				let error = `User with ID ${id} does not exist in data.`;
+				sendMessage(message, error);
+				logger.error(error);
+			}
 		}
 	});
 }
@@ -95,9 +130,20 @@ function handleRandomImage(message) {
 }
 
 function handleOwnerFeatures(message) {
-	if (message.content === "!add") {
-		addUser(message.author.id);
+	if (message.content.includes("!add")) {
+		addUser(message, getIdOfMentionedUser(message));
+	} else if (message.content.includes("!remove")) {
+		removeUser(message, getIdOfMentionedUser(message));
 	}
+}
+
+function getIdOfMentionedUser(message) {
+	let mentionedUsers = message.mentions.users;
+	let value = mentionedUsers.values().next();
+	if (value.value !== undefined) {
+		return value.value.id;
+	}
+	return -1;
 }
 
 function handleKeyWordImage(message, enteredKeyword) {
@@ -116,9 +162,13 @@ function handleKeyWordImage(message, enteredKeyword) {
 	sendImage(message, possibleImages[Math.floor(Math.random() * possibleImages.length)]);
 }
 
+function sendMessage(message, messageContent) {
+	message.channel.send(messageContent);
+}
+
 function sendImage(message, image) {
 	const attachment = new Attachment(image);
-	message.channel.send(attachment);
+	sendMessage(message, attachment);
 }
 
 function handleMessage(client, message) {
@@ -173,6 +223,16 @@ function containsKeyword(message) {
 		boolean: doesContainKeyword,
 		keyword: foundKeyword
 	};
+}
+
+function errorMessage(message, error) {
+	sendMessage(message, error);
+	logger.error(error);
+}
+
+function infoMessage(message, content) {
+	sendMessage(message, content);
+	logger.info(content);
 }
 
 loadAllowedUsers();
