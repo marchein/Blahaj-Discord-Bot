@@ -134,6 +134,9 @@ function handleOwnerFeatures(message) {
 		addUser(message, getIdOfMentionedUser(message));
 	} else if (message.content.includes("!remove")) {
 		removeUser(message, getIdOfMentionedUser(message));
+	} else if (message.content.includes("!say")) {
+		var slug = message.content.split("!say").pop();
+		sendMessage(message, slug);
 	}
 }
 
