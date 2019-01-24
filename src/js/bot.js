@@ -129,14 +129,19 @@ function handleRandomImage(message) {
 	logger.info("Sending random blahaj image!");
 }
 
-function handleOwnerFeatures(message) {
+function handleOwnerFeatures(client, message) {
 	if (message.content.includes("!add")) {
 		addUser(message, getIdOfMentionedUser(message));
 	} else if (message.content.includes("!remove")) {
 		removeUser(message, getIdOfMentionedUser(message));
 	} else if (message.content.includes("!say")) {
-		var slug = message.content.split("!say").pop();
+		let slug = message.content.split("!say").pop();
 		sendMessage(message, slug);
+	} else if (message.content.includes("!status")) {
+		let status = message.content.split("!status").pop();
+		client.user.setActivity(status, {
+			type: "PLAYING"
+		});
 	}
 }
 
@@ -185,7 +190,7 @@ function handleMessage(client, message) {
 		} else if (doesContainsKeyword.boolean) {
 			handleKeyWordImage(message, doesContainsKeyword.keyword);
 		} else if (message.author.id === config.BOT_OWNER) {
-			handleOwnerFeatures(message);
+			handleOwnerFeatures(client, message);
 		}
 	} else if (message.author.id === client.user.id) {
 		logger.info(`Bot ${client.user.tag} wrote message: ${message.content}`);

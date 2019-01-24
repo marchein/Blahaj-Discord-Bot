@@ -4,9 +4,6 @@ const { Client } = require("discord.js");
 const client = new Client();
 
 client.on("ready", () => {
-	client.user.setActivity("Schwimmen", {
-		type: "PLAYING"
-	});
 	Bot.logger.info(`Logged in as ${client.user.tag}!`);
 });
 
