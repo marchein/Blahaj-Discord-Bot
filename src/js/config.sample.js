@@ -5,7 +5,9 @@ const config = {
 	data: {
 		IMAGES_PATH: "/src/data/blahajImages.json",
 		USERS_FILE_PATH: "/src/data/users.json"
-	}
+	},
+	RANDOM_WORDS: ["franz", "blahaj", "blåhaj", "hai", "shark"],
+	LOG_FOLDER: "/logs/"
 };
 
 module.exports = {
