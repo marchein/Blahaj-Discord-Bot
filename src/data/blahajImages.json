@@ -5,31 +5,44 @@
 			"laughing",
 			"lachen",
 			"lustig",
-			"funny"
+			"funny",
+			"hahaha"
 		]
 	},
 	"crying":{
 		"image":"https://i.imgur.com/uHh7UWf.png",
 		"keywords":[
-			"replaceme"
+			"heule",
+			"heulen",
+			"heul",
+			"crying",
+			"weine"",
+			"weinen"
 		]
 	},
 	"noway":{
 		"image":"https://i.imgur.com/Es05dFw.png",
 		"keywords":[
-			"replaceme"
+			"no way",
+			"never ever",
+			"nie",
+			"niemals"
 		]
 	},
 	"tired":{
 		"image":"https://i.imgur.com/OY3xPRZ.png",
 		"keywords":[
-			"replaceme"
+			"müde"
 		]
 	},
 	"question":{
 		"image":"https://i.imgur.com/7KcxqDp.png",
 		"keywords":[
-			"replaceme"
+			"frage",
+			"hä",
+			"keine ahnung",
+			"kein plan",
+			"kp"
 		]
 	},
 	"whatever":{
@@ -41,133 +54,164 @@
 	"youknow":{
 		"image":"https://i.imgur.com/OZWzjnM.png",
 		"keywords":[
-			"replaceme"
+			"na?"
 		]
 	},
 	"car":{
 		"image":"https://i.imgur.com/a6Rv1Y5.png",
 		"keywords":[
-			"replaceme"
+			"let's go",
+			"auf geht's"
 		]
 	},
 	"magic":{
 		"image":"https://i.imgur.com/PInrKzf.png",
 		"keywords":[
-			"replaceme"
+			"magic"
 		]
 	},
 	"greetings":{
 		"image":"https://i.imgur.com/MbrDttJ.png",
 		"keywords":[
-			"replaceme"
+			"grüße",
+			"gruß",
+			"regards"
 		]
 	},
 	"netsharkandchill":{
 		"image":"https://i.imgur.com/ff8HWdW.png",
 		"keywords":[
-			"replaceme"
+			"assi",
+			"harzen",
+			"netflix and chill"
 		]
 	},
 	"love":{
 		"image":"https://i.imgur.com/wT5bCVq.png",
 		"keywords":[
-			"replaceme"
+			"#TODO"
 		]
 	},
 	"horse":{
 		"image":"https://i.imgur.com/bqju3uM.png",
 		"keywords":[
-			"replaceme"
+			"duh",
+			"äh"
 		]
 	},
 	"running":{
 		"image":"https://i.imgur.com/Ax2QUss.png",
 		"keywords":[
-			"replaceme"
+			"bruder muss los"
 		]
 	},
 	"sick":{
 		"image":"https://i.imgur.com/uZPh3zW.png",
 		"keywords":[
-			"replaceme"
+			"krank",
+			"sick"
 		]
 	},
 	"meal":{
 		"image":"https://i.imgur.com/9er9DuA.png",
 		"keywords":[
-			"replaceme"
+			"pizza",
+			"essen",
+			"hunger"
 		]
 	},
 	"showering":{
 		"image":"https://i.imgur.com/hWeuUZ7.png",
 		"keywords":[
-			"replaceme"
+			"duschen",
+			"dusche",
+			"baden"
 		]
 	},
 	"king":{
 		"image":"https://i.imgur.com/f2ydvaX.png",
 		"keywords":[
-			"replaceme"
+			"king",
+			"ego"
 		]
 	},
 	"reading":{
 		"image":"https://i.imgur.com/CvqFCON.png",
 		"keywords":[
-			"replaceme"
+			"how to",
+			"rtfm",
+			"lesen",
+			"lese"
 		]
 	},
 	"happy":{
 		"image":"https://i.imgur.com/YjSPj2J.png",
 		"keywords":[
-			"happy"
+			"happy",
+			"glücklich"
 		]
 	},
 	"sleeping":{
 		"image":"https://i.imgur.com/OJ4lZdD.png",
 		"keywords":[
-			"replaceme"
+			"schlafen",
+			"schlafe",
+			"pennen",
+			"penne"
 		]
 	},
 	"dead":{
 		"image":"https://i.imgur.com/BJNn40T.png",
 		"keywords":[
-			"replaceme"
+			"tot",
+			"done"
 		]
 	},
 	"pc":{
 		"image":"https://i.imgur.com/DNGu8XG.png",
 		"keywords":[
-			"replaceme"
+			"internet"
 		]
 	},
 	"batman":{
 		"image":"https://i.imgur.com/b8KhpW0.png",
 		"keywords":[
-			"replaceme"
+			"batman",
+			"fledermaus",
+			"bruce wayne"
 		]
 	},
 	"thumbsup":{
 		"image":"https://i.imgur.com/0N5phOI.png",
 		"keywords":[
-			"replaceme"
+			"nice",
+			"daumen hoch",
+			"thumbs up"
 		]
 	},
 	"seesphp":{
 		"image":"https://i.imgur.com/gnx5iDa.png",
 		"keywords":[
-			"replaceme"
+			"php",
+			"haskell",
+			"android"
 		]
 	},
 	"winking":{
 		"image":"https://i.imgur.com/nWA7kzZ.png",
 		"keywords":[
-			"replaceme"
+			"winke",
+			"winken",
+			"bye",
+			"tschüss"
 		]
 	},
 	"glad":{
 		"image":"https://i.imgur.com/3kH54zL.png",
 		"keywords":[
-			"replaceme"
+			"aw",
+			"aww",
+			"awww"
 		]
 	}
 }
