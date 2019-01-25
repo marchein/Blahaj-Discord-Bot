@@ -14,5 +14,13 @@
     "discord.js": "^11.4.2",
     "eslint": "^5.12.1",
     "winston": "^3.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marchein/Blahaj-Discord-Bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marchein/Blahaj-Discord-Bot/issues"
+  },
+  "homepage": "https://github.com/marchein/Blahaj-Discord-Bot#readme"
 }

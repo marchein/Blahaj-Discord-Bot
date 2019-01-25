@@ -185,10 +185,10 @@ function handleMessage(client, message) {
 		let doesIncludeBlahaj = includesBlahaj(messageText);
 		let doesContainsKeyword = containsKeyword(messageText);
 
-		if (doesIncludeBlahaj) {
-			handleRandomImage(message);
-		} else if (doesContainsKeyword.boolean) {
+		if ((doesContainsKeyword.boolean && doesIncludeBlahaj) || doesContainsKeyword.boolean) {
 			handleKeyWordImage(message, doesContainsKeyword.keyword);
+		} else if (doesIncludeBlahaj) {
+			handleRandomImage(message);
 		} else if (message.author.id === config.BOT_OWNER) {
 			handleOwnerFeatures(client, message);
 		}
