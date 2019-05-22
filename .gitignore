@@ -6,3 +6,4 @@ users\.json
 src/js/config\.js
 
 logs/
+*.DS_Store
